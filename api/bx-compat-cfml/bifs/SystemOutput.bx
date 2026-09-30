@@ -1,0 +1,45 @@
+/**
+ * [BoxLang]
+ *
+ * Copyright [2023] [Ortus Solutions, Corp]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+ * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ *
+ * Lucee Function: Writes the given object to the output stream
+ */
+import java.lang.System;
+
+@BoxBIF
+class{
+
+	/**
+	 * The execution of this BIF with amazing BoxLang arguments
+	 * @obj The object to output
+	 * @addNewLine Print with a line break or without one. Defaults to false
+	 * @doErrorStream If true, it sends it to the error stream
+	 */
+	function invoke( any obj, boolean addNewLine = false, boolean doErrorStream = false  ){
+		if( !arguments.doErrorStream ){
+			if( arguments.addNewLine ){
+				println( arguments.obj );
+			} else {
+				print( arguments.obj );
+			}
+			return null;
+		}
+
+		if( arguments.addNewLine ){
+			System.err.println( arguments.obj );
+		} else {
+			System.err.print( arguments.obj );
+		}
+	}
+
+}

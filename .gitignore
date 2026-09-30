@@ -1,0 +1,13 @@
+# CFML dependencies (reinstalled with "box install")
+api/coldbox/
+api/testbox/
+api/modules/
+
+# Node dependencies and builds
+web/node_modules/
+web/dist/
+
+# Secrets and local files
+.env
+*.log
+.vscode/
